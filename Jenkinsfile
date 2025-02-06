@@ -1,33 +1,24 @@
 pipeline {
 
- agent any
+    agent any
 
- tools {jdk 'JAVA_HOME', maven 'M2_HOME'}
+    tools {
+        jdk 'JAVA_HOME'
+        maven 'M2_HOME'
+    }
 
- stages {
+    stages {
 
- stage('GIT') {
+        stage('GIT') {
+            steps {
+                git branch: 'main', url: 'https://github.com/MedEzzedineBenZbiba/timesheet-devops.git'
+            }
+        }
 
-           steps {
-
-               git branch: 'main',
-
-               url: ' https://github.com/MedEzzedineBenZbiba/timesheet-devops.git'
-
-          }
-
-     }
-
- stage ('Compile Stage') {
-
- steps {
-
- sh 'mvn clean compile'
-
- }
-
- }
-
- }
-
+        stage('Compile Stage') {
+            steps {
+                sh 'mvn clean compile'
+            }
+        }
+    }
 }
