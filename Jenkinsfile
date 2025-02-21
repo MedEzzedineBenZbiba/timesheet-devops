@@ -20,5 +20,12 @@ pipeline {
                 sh 'mvn clean compile'
             }
         }
+
+         stage('MVN Sonarqube') {
+            steps {
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=Sonar123456789 -Dmaven.test.skip=true'
+            }
+        }
+        
     }
 }
