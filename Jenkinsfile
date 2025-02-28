@@ -26,6 +26,13 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.token=sqa_c593b3768524667fc3c4e020f905ddb7a11c8bdb -Dmaven.test.skip=true'
             }
         }
+
+         stage('Deploy to Nexus') {
+            steps {
+                sh 'mvn deploy -Dmaven.test.skip=true' 
+
+            }
+        }
         
     }
 }
