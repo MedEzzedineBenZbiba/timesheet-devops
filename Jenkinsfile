@@ -20,6 +20,24 @@ pipeline {
                 sh 'mvn clean compile'
             }
         }
+        stage('Building image') {
+            steps {
+                sh 'docker build -t ezzdinbz/timesheet-devops:1.0.0 .'
+            }
+        }
+
+          stage('Deploy Image') {
+                    steps {
+                        sh 'docker push  ezzdinbz/timesheet-devops:1.0.0'
+                    }
+                }
+
+            stage('Docker compose') {
+                              steps {
+                                  sh 'docker compose up'
+                              }
+                          }
+
 
          stage('MVN Sonarqube') {
             steps {
