@@ -26,11 +26,15 @@ pipeline {
             }
         }
 
-          stage('Deploy Image') {
-                    steps {
-                        sh 'docker push  ezzdinbz/timesheet-devops:1.0.0'
-                    }
-                }
+       stage('Deploy Image') {
+           steps {
+               sh '''
+                   echo "dckr_pat_kjJJgNHGXnSUsdbgj0xk5ywRNb4" | docker login -u "ezzdinbz" --password-stdin
+                   docker push ezzdinbz/timesheet-devops:1.0.0
+               '''
+           }
+       }
+
 
             stage('Docker compose') {
                               steps {
