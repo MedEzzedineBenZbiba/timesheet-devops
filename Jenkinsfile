@@ -58,6 +58,12 @@ pipeline {
                               }
             }
 
+              stage('Post action') {
+                              steps {
+                                  echo "bonjour"
+                              }
+            }
+
 
 
 
