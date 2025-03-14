@@ -4,7 +4,7 @@ version: "3.0"
 services:
   app_timesheet:
     image: ezzdinbz/timesheet-devops:1.0.0
-    restart: on-failure
+#    restart: on-failure
     depends_on:
       mysql_db :
         condition: service_healthy
