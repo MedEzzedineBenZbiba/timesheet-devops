@@ -32,7 +32,6 @@ public class Contrat implements Serializable {
 	private Date dateDebut;
 	 
 	private String typeContrat;
- 
 	@JsonIgnore
 	@OneToOne(mappedBy="contrat")
 	private Employe employe;
