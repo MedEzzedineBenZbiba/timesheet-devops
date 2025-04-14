@@ -35,7 +35,6 @@ public class Contrat implements Serializable {
 	@JsonIgnore
 	@OneToOne(mappedBy="contrat")
 	private Employe employe;
-
 	private float salaire;
 
 	public Contrat() {
